@@ -1,7 +1,6 @@
 version: '3.8'
 services:
   app:
-    image: php:8.1.12RC1-zts-alpine3.16
     container_name: app_container
   nginx:
     image: nginx:1.23.2
@@ -9,3 +8,18 @@ services:
   db:
     image: mysql:8.0.31-oracle
     container_name: db_container
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: user 
+      MYSQL_USER_PASSWORD: password
+      MYSQL_DATABASE: database
+    volumes:
+      - type: volume
+        source: mysql-volume
+        target: /var/lib/mysql
+      - type: bind
+        source: ./docker/db/init.sql
+        target: /docker-entrypoint-initdb.d/init.sql
+
+volumes:
+  mysql-volume:
