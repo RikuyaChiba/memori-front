@@ -1,10 +1,13 @@
 version: '3.8'
 services:
   app:
+    build:
+      dockerfile: ./docker/app/Dockerfile
+      context: .
     container_name: app_container
     ports:
       - '18000:8000'
-  nginx:
+  web:
     image: nginx:1.23.2
     container_name: nginx_container
     ports:
