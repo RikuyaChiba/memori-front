@@ -2,9 +2,13 @@ version: '3.8'
 services:
   app:
     container_name: app_container
+    ports:
+      - '18000:8000'
   nginx:
     image: nginx:1.23.2
     container_name: nginx_container
+    ports:
+      - '18025:8025'
   db:
     image: mysql:8.0.31-oracle
     container_name: db_container
