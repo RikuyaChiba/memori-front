@@ -18,6 +18,10 @@ services:
       - '18000:8000'
     depends_on:
       - app
+    volumes:
+      - type: bind
+        source: ./src
+        target: /src
 #   db:
 #     image: mysql:8.0.31-oracle
 #     container_name: db_container
