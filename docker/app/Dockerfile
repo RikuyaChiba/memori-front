@@ -1,3 +1,10 @@
-FROM php:8.1.12RC1-zts-alpine3.16
+FROM php:8.0-fpm
 
-COPY ./docker/app/php.ini
+RUN set -x \
+    && apt-get -y update \
+    && apt-get install -y git unzip libzip-dev libicu-dev libonig-dev \ 
+    && docker-php-ext-install intl pdo_mysql zip bcmath
+
+COPY ./docker/app/php.ini /usr/local/etc/php/php.ini
+
+WORKDIR /app
