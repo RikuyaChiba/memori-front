@@ -22,21 +22,26 @@ services:
       - type: bind
         source: ./src
         target: /src
-#   db:
-#     image: mysql:8.0.31-oracle
-#     container_name: db_container
-#     environment:
-#       MYSQL_ROOT_PASSWORD: root
-#       MYSQL_USER: user 
-#       MYSQL_USER_PASSWORD: password
-#       MYSQL_DATABASE: database
-#     volumes:
-#       - type: volume
-#         source: mysql-volume
-#         target: /var/lib/mysql
-#       - type: bind
-#         source: ./docker/db/init.sql
-#         target: /docker-entrypoint-initdb.d/init.sql
-
-# volumes:
-#   mysql-volume:
+  db:
+    build:
+      dockerfile: ./docker/db/Dockerfile
+      context: .
+    container_name: db_container
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_DATABASE: database
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: user 
+      MYSQL_USER_PASSWORD: password
+      TZ: 'Asia/Tokyo'
+    volumes:
+      - type: volume
+        source: mysql-volume
+        target: /var/lib/mysql
+      - type: bind
+        source: ./docker/db/init.sql
+        target: /docker-entrypoint-initdb.d/init.sql
+        
+volumes:
+  mysql-volume:
