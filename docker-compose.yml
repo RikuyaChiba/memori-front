@@ -8,7 +8,7 @@ services:
     volumes:
       - type: bind
         source: ./src
-        target: /src
+        target: /app
   web:
     build:
       dockerfile: ./docker/web/Dockerfile
@@ -21,7 +21,7 @@ services:
     volumes:
       - type: bind
         source: ./src
-        target: /src
+        target: /app
   db:
     build:
       dockerfile: ./docker/db/Dockerfile
