@@ -7,4 +7,6 @@ RUN set -x \
 
 COPY ./docker/app/php.ini /usr/local/etc/php/php.ini
 
+COPY --from=composer /usr/bin/composer /usr/bin/composer
+
 WORKDIR /app
