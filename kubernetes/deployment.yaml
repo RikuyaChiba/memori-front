@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-php
+  labels:
+    app: memori
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: memori
+  template:
+    metadata:
+      labels:
+        app: memori
+    spec:
+      containers:
+        - name: nginx
+          image: docker.io/landlixer/nginx
+          env:
+          - name: BACKEND_HOST
+            value: localhost:8080
+          ports:
+          - containerPorts: 80
+        - name: app
+          image: docker.io/landlixer/php
+          ports:
+          - containerPorts: 8080
