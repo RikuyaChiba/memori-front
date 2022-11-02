@@ -1,27 +1,35 @@
 version: '3.8'
 services:
-  app:
-    build:
-      dockerfile: ./docker/app/Dockerfile
-      context: .
-    container_name: app_container
-    volumes:
-      - type: bind
-        source: ./src
-        target: /app
-  web:
+  web-server-nginx:
     build:
       dockerfile: ./docker/web/Dockerfile
       context: .
     container_name: nginx_container
     ports:
-      - '18000:8000'
+      - '80:80'
     depends_on:
-      - app
+      - web-server-php
     volumes:
       - type: bind
         source: ./src
         target: /app
+    networks:
+      - my_network
+      
+  web-server-php:
+    build:
+      dockerfile: ./docker/app/Dockerfile
+      context: .
+    container_name: app_container
+    ports:
+     - "9000:9000"
+    volumes:
+      - type: bind
+        source: ./src
+        target: /app
+    networks:
+      - my_network
+
   db:
     build:
       dockerfile: ./docker/db/Dockerfile
@@ -42,6 +50,10 @@ services:
       - type: bind
         source: ./docker/db/init.sql
         target: /docker-entrypoint-initdb.d/init.sql
+
+networks:
+  my_network:
+    driver: bridge
         
 volumes:
   mysql-volume:
