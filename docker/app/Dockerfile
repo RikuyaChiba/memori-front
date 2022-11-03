@@ -6,7 +6,8 @@ RUN set -x \
     && docker-php-ext-install intl pdo_mysql zip bcmath
 
 COPY ./docker/app/php.ini /usr/local/etc/php/php.ini
+COPY ./src /var/www/
 
 COPY --from=composer /usr/bin/composer /usr/bin/composer
 
-WORKDIR /app
+WORKDIR /var/www
