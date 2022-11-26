@@ -2,7 +2,7 @@ version: '3.8'
 services:
   web-server-nginx:
     build:
-      dockerfile: ./docker/web/dev/Dockerfile
+      dockerfile: ./docker/web/Dockerfile
       context: .
     container_name: nginx_container
     ports:
@@ -18,7 +18,7 @@ services:
       
   web-server-php:
     build:
-      dockerfile: ./docker/app/dev/Dockerfile
+      dockerfile: ./docker/app/Dockerfile
       context: .
     container_name: app_container
     ports:
@@ -32,7 +32,7 @@ services:
 
   db:
     build:
-      dockerfile: ./docker/db/dev/Dockerfile
+      dockerfile: ./docker/db/Dockerfile
       context: .
     container_name: db_container
     ports:
