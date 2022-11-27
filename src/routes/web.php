@@ -9,5 +9,6 @@ Route::get('/', function () {
 });
 
 Route::prefix('recurring')->group(function () {
+    Route::get('/index', Recurring\IndexController::class);
     Route::get('/store', Recurring\StoreController::class);
 });
