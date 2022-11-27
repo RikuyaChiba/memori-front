@@ -13,13 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->rememberToken();
+        Schema::create('recurrings', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->tinyText('name')->comment('Recurring name');
+            $table->unsignedTinyInteger('status')->comment('Recurring day, 1: First day, 2: 1day recurring, 3: 3day recurring, 4: 1week recurring, 5: 2weeks recurring, 6: 1month recurring');
             $table->timestamps();
         });
     }
@@ -31,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('tasks');
     }
 };
