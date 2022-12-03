@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Recurring;
 
 use App\Http\Controllers\Controller;
 use App\Services\RecurringService;
-use Illuminate\Support\Collection;
 
 class IndexController extends Controller {
 
