@@ -16,4 +16,13 @@ class RecurringService {
         return DB::table('recurrings')
             ->get();
     }
+
+    /**
+     * Save recurring request data sent from store form.
+     */
+    public function create($recurring_request): void
+    {
+        DB::table('recurrings')
+            ->insert($recurring_request);
+    }
 }
