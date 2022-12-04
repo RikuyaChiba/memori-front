@@ -5,22 +5,49 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="card">
-            <div class="card-header">
-                0day recurring
-            </div>
-            <div class="card-body">
-                @foreach ($recurrings as $recurring)
-                <div class="card-title">
-                    {{-- HACK: Modify if statement to display text when records of recurrings table is 0 --}}
-                    @empty($recurring->name)
-                        It seems there is nothing here...
-                    @else
-                        {{ $recurring->name }}
-                    @endempty
-                </div>
-                @endforeach
-            </div>
+        <div class="col-4">
+            @component('components.card.card',[
+                'title' => 'Today',
+                'recurrings' => $recurrings['first_day']
+            ])
+            @endcomponent
+        </div>
+        <div class="col-4">
+            @component('components.card.card',[
+                'title' => '1day recurring',
+                'recurrings' => $recurrings['one_day']
+            ])
+            @endcomponent
+        </div>
+        <div class="col-4">
+            @component('components.card.card',[
+                'title' => '3day recurring',
+                'recurrings' => $recurrings['three_day']
+            ])
+            @endcomponent
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4">
+            @component('components.card.card',[
+                'title' => '1week recurring',
+                'recurrings' => $recurrings['one_week']
+            ])
+            @endcomponent
+        </div>
+        <div class="col-4">
+            @component('components.card.card',[
+                'title' => '2week recurring',
+                'recurrings' => $recurrings['two_week']
+            ])
+            @endcomponent
+        </div>
+        <div class="col-4">
+            @component('components.card.card',[
+                'title' => '1month recurring',
+                'recurrings' => $recurrings['one_month']
+            ])
+            @endcomponent
         </div>
     </div>
 </div>
