@@ -3,7 +3,14 @@
 @section('title', $title)
 
 @section('content')
-    <div class="container">
+    <div class="container mt-2">
+        @if ($errors->all())
+            <div class="error">
+                @foreach ($errors->all() as $error)
+                    <p class="mb-0">{{ $error }}</p>
+                @endforeach
+            </div>
+        @endif
         <div class="card mt-2">
             <div class="card-body">
                 <h5 class="card-title">Save recurring task</h5>
