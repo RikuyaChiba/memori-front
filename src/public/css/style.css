@@ -4,7 +4,7 @@
     border: 0;
     outline: 0;
     box-sizing: border-box;
-    user-select: none;
+    font-family: 'Open Sans', Arial, sans-serif;
 }
 
 :root {
@@ -20,11 +20,26 @@
     --color-bg: #0f2641;
     --color-bg-2: #2e3267;
     --color-bg-3: #424890;
+    --color-thin-dark-blue: #F7F8FA;
+    --color-dark-blue: #DCE3EB;
 
     --border-radius-sm: 0.1rem;
 
     --transition: all 399ms ease;
 
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+
+/* ====================== CARD ===================== */
+.card {
+    height: 20.5rem;
+    border: none;
+    background-color: var(--color-thin-dark-blue);
 }
 
 /* ====================== ERROR MESSAGE ===================== */
@@ -34,4 +49,13 @@
     border-radius: var(--border-radius-sm);
     background-color: var(--color-danger);
     color: var(--color-white);
+}
+
+/* ====================== RECURRING COMPONENT ===================== */
+
+.recurring-item {
+    padding: 0.5rem;
+    border: solid 1px var(--color-dark-blue);
+    border-radius: .3rem;
+    background-color: var(--color-white);
 }

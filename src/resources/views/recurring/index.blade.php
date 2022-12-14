@@ -3,9 +3,11 @@
 @section('title', $title)
 
 @section('content')
-<div class="container">
-  <div class="row">
-    <div class="col-4">
+<div class="container-fluid">
+  <div class="row mt-3">
+  {{-- TODO: Create a sidebar --}}
+    <div class="col-3"></div>
+    <div class="col-3">
       @component('components.card.card',
         [
             'title' => 'Today',
@@ -13,7 +15,7 @@
         ])
       @endcomponent
     </div>
-    <div class="col-4">
+    <div class="col-3">
       @component('components.card.card',
         [
           'title' => '1day recurring',
@@ -21,7 +23,7 @@
         ])
       @endcomponent
     </div>
-    <div class="col-4">
+    <div class="col-3">
       @component('components.card.card',
         [
           'title' => '3day recurring',
@@ -30,8 +32,9 @@
       @endcomponent
     </div>
   </div>
-  <div class="row">
-    <div class="col-4">
+  <div class="row mt-3">
+    <div class="col-3"></div>
+    <div class="col-3">
       @component('components.card.card',
         [
           'title' => '1week recurring',
@@ -39,7 +42,7 @@
         ])
       @endcomponent
     </div>
-    <div class="col-4">
+    <div class="col-3">
       @component('components.card.card',
         [
           'title' => '2week recurring',
@@ -47,7 +50,7 @@
         ])
       @endcomponent
     </div>
-    <div class="col-4">
+    <div class="col-3">
       @component('components.card.card',
         [
           'title' => '1month recurring',
