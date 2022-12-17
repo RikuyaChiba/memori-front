@@ -3,17 +3,17 @@
     {{ $title }}
   </div>
   <div class="card-body">
-    @foreach ($recurrings as $recurring)
-      <div class="recurring-item mb-2">
-        <div class="card-title mb-0">
+    <ul class="recurring-items list-group">
+      @foreach ($recurrings as $recurring)
+        <li class="recurring-item list-group-item mb-2">
           {{-- HACK: Modify if statement to display text when records of recurrings table is 0 --}}
           @empty($recurring->name)
             It seems that there is nothing here...
           @else
-            <p draggable="true">{{ $recurring->name }}</p>
+            {{ $recurring->name }}
           @endempty
-        </div>
-      </div>
-    @endforeach
+        </li>
+      @endforeach
+    </ul>
   </div>
 </div>
