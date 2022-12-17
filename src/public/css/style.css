@@ -58,4 +58,9 @@ p {
     border: solid 1px var(--color-dark-blue);
     border-radius: .3rem;
     background-color: var(--color-white);
+    cursor: grab;
+}
+
+.recurring-item:active {
+    cursor: grabbing;
 }
