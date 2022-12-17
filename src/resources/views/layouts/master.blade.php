@@ -19,6 +19,10 @@
     {{-- style.css --}}
     <link rel="stylesheet" href="/css/style.css">
 
+
+    <!-- jsDelivr :: Sortable :: Latest (https://www.jsdelivr.com/package/npm/sortablejs) -->
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+
     <title>@yield('title')</title>
 </head>
 <body>
@@ -27,6 +31,6 @@
     @show
 
     @yield('content')
-    <script src="/js/recurring/index.js"></script>
+    <script type="module" src="/js/recurring/index.js"></script>
 </body>
 </html>
