@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ccbd816a07b206f971042295b899d1ba",
+    "content-hash": "e2b2ac7633f719832e80af5053d94f49",
     "packages": [
         {
             "name": "brick/math",
@@ -61,6 +61,34 @@
                 }
             ],
             "time": "2022-08-10T22:54:19+00:00"
+        },
+        {
+            "name": "chibarikuya/memori-core",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/RikuyaChiba/memori-core.git",
+                "reference": "907b367623360798db28a3cf5edde69d91c0f701"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/RikuyaChiba/memori-core/zipball/907b367623360798db28a3cf5edde69d91c0f701",
+                "reference": "907b367623360798db28a3cf5edde69d91c0f701",
+                "shasum": ""
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Chibarikuya\\MemoriCore\\": "src/"
+                }
+            },
+            "description": "Database relevant file for memori app",
+            "support": {
+                "source": "https://github.com/RikuyaChiba/memori-core/tree/main",
+                "issues": "https://github.com/RikuyaChiba/memori-core/issues"
+            },
+            "time": "2022-12-18T12:31:32+00:00"
         },
         {
             "name": "dflydev/dot-access-data",
@@ -7804,7 +7832,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "chibarikuya/memori-core": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
